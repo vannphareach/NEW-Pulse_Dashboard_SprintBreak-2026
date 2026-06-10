@@ -195,12 +195,12 @@ Cycle filtering:
 
 In [lib/fetchDashboard.ts](lib/fetchDashboard.ts):
 
-- If `APPS_SCRIPT_URL` is missing or fetch fails, `MOCK_DATA` is used.
+- If `APPS_SCRIPT_URL` is missing or fetch fails, the dashboard returns an empty data shape and renders no-data states.
 - `trends` are normalized by:
   - forcing `cycle` string
   - coercing `overallScore` to number
   - filtering out invalid/empty cycles and non-positive scores
-- If trend history is unusable (for example unknown labels), mock trends are substituted.
+- Trend history is not substituted; only valid live trend points are rendered.
 
 ### 3.2 Resolved overall score
 

@@ -46,6 +46,14 @@ const LEGEND = [
 ];
 
 export default function ScoreChart({ areaScores }: ScoreChartProps) {
+  if (!areaScores.length) {
+    return (
+      <div className="bg-white rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-slate-100/60 p-5 text-sm text-slate-500">
+        No pulse area scores available yet.
+      </div>
+    );
+  }
+
   const data = areaScores.map((d) => ({
     ...d,
     shortArea: shortLabel(d.area),
